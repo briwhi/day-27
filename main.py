@@ -1,34 +1,40 @@
 from tkinter import *
-
+import math
 
 def button_clicked():
-    print("I got clicked")
-    new_text = input.get()
-    my_label.config(text=new_text)
+    miles = int(input.get())
+    km = math.floor(miles * 0.6)
+    result_label.config(text=km)
 
 
 window = Tk()
-window.title("My First GUI Program")
-window.minsize(width=500, height=300)
-window.config(padx=100, pady=200)
-
-#Label
-my_label = Label(text="I Am a Label", font=("Arial", 24, "bold"))
-my_label.config(text="New Text")
-my_label.grid(column=0, row=0)
-my_label.config(padx=50, pady=50)
-
-#Button
-button = Button(text="Click Me", command=button_clicked)
-button.grid(column=1, row=1)
-
-new_button = Button(text="New Button")
-new_button.grid(column=2, row=0)
+window.title("Miles to KM Calculator")
+window.minsize()
 
 #Entry
 input = Entry(width=10)
 print(input.get())
-input.grid(column=3, row=2)
+input.grid(column=1, row=0)
+
+#Label
+my_label = Label(text="Miles", font=("Arial", 24))
+my_label.grid(column=3, row=0)
+
+equal_label = Label(text="is equal to", font=("Arial", 24))
+equal_label.grid(column=0, row=1)
+
+result_label = Label(text="", font=("Arial", 24))
+result_label.grid(column=1, row=1)
+
+k_label = Label(text="KM", font=("Arial", 24))
+k_label.grid(column=2, row=1)
+
+#Button
+button = Button(text="Calculate", command=button_clicked)
+button.grid(column=1, row=2)
+
+
+
 
 
 
